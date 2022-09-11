@@ -1,14 +1,14 @@
 <template>
   <nav class="nav">
-    <a href="/login" class="nav__link">Вход</a>
-    <a href="/register" class="nav__link">Регистрация</a>
+    <RouterLink to="/login" class="nav__link">Вход</RouterLink>
+    <RouterLink to="/register" class="nav__link">Регистрация</RouterLink>
   </nav>
 </template>
 
 <script>
 export default {
   name: 'MeetupsNav',
-};
+}
 </script>
 
 <style scoped>
