@@ -1,6 +1,6 @@
 <template>
   <nav class="nav">
-    <Rgit outerLink to="/login" class="nav__link">Вход</RgouterLink>
+    <RouterLink to="/login" class="nav__link">Вход</RouterLink>
     <RouterLink to="/register" class="nav__link">Регистрация</RouterLink>
   </nav>
 </template>
