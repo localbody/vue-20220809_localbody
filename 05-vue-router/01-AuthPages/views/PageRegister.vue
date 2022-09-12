@@ -37,7 +37,7 @@
         </div>
         <div class="form__append">
           Уже есть аккаунт?
-          <RouterLink to="/login" class="link">Войдите</RouterLink>
+          <RouterLink :to="{ name: 'login' }" class="link">Войдите</RouterLink>
         </div>
       </form>
     </ui-container>
@@ -59,6 +59,7 @@ export default {
   methods: {
     handleSubmit() {
       // Требуется обработать сабмит формы
+      this.$router.push({ name: 'login' })
     },
   },
 }

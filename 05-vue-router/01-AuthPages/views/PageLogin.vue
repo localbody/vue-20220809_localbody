@@ -30,7 +30,9 @@
         </div>
         <div class="form__append">
           Нет аккаунта?
-          <RouterLink to="/register" class="link">Зарегистрируйтесь</RouterLink>
+          <RouterLink :to="{ name: 'register' }" class="link"
+            >Зарегистрируйтесь</RouterLink
+          >
         </div>
       </form>
     </ui-container>
@@ -44,6 +46,13 @@ import UiContainer from '../components/UiContainer'
 export default {
   name: 'PageLogin',
 
+  props: {
+    query: {
+      type: String,
+      default: 'main',
+    },
+  },
+
   components: {
     UiFormGroup,
     UiContainer,
@@ -52,6 +61,8 @@ export default {
   methods: {
     handleSubmit() {
       // Требуется обработать сабмит формы
+      console.log(this.query)
+      this.$router.push({ name: '' })
     },
   },
 }
