@@ -7,19 +7,19 @@ export const router = createRouter({
   history: createWebHistory('/05-vue-router/01-AuthPages'),
   routes: [
     {
-      name: 'main',
       path: '/',
+      name: 'index',
       component: PageIndex,
     },
     {
+      path: '/login',
       name: 'login',
-      path: '/login:query',
       props: true,
       component: PageLogin,
     },
     {
-      name: 'register',
       path: '/register',
+      name: 'register',
       component: PageRegister,
     },
   ],

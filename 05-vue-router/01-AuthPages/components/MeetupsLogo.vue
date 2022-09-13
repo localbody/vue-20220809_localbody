@@ -1,6 +1,6 @@
 <template>
   <h1 class="logo">
-    <router-link :to="{ name: 'main' }" class="logo__link">
+    <router-link :to="{ name: 'index' }" class="logo__link">
       <img
         src="@/assets/logo.svg"
         alt="Meetups"

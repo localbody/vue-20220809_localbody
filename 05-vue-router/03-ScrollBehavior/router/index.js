@@ -1,7 +1,27 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router'
 
 export const router = createRouter({
   history: createWebHistory('/05-vue-router/03-ScrollBehavior'),
+
+  scrollBehavior(to, from, savedPosition) {
+    console.log(to, from, savedPosition)
+
+    if (to.meta?.saveScrollPosition && from.meta?.saveScrollPosition) {
+      console.log('saveScrollPosition')
+      return savedPosition
+    } else if (to.hash) {
+      console.log('hash')
+      return {
+        selector: to.hash,
+      }
+    } else if (savedPosition) {
+      console.log('savedPosition')
+      return savedPosition
+    } else {
+      console.log('no savedPosition')
+      return { x: 0, y: 0 }
+    }
+  },
 
   routes: [
     {
@@ -41,4 +61,4 @@ export const router = createRouter({
       ],
     },
   ],
-});
+})

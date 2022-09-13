@@ -46,23 +46,21 @@ import UiContainer from '../components/UiContainer'
 export default {
   name: 'PageLogin',
 
-  props: {
-    query: {
-      type: String,
-      default: 'main',
-    },
-  },
-
   components: {
     UiFormGroup,
     UiContainer,
   },
 
+  computed: {
+    path() {
+      return this.$route.query?.from ?? '/'
+    },
+  },
+
   methods: {
     handleSubmit() {
       // Требуется обработать сабмит формы
-      console.log(this.query)
-      this.$router.push({ name: '' })
+      this.$router.push({ path: this.path })
     },
   },
 }
