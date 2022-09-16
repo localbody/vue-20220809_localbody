@@ -2,15 +2,15 @@
   <div class="wrapper">
     <meetups-header />
     <main class="main">
-      <div>CURRENT PAGE</div>
+      <RouterView />
     </main>
     <meetups-footer />
   </div>
 </template>
 
 <script>
-import MeetupsHeader from './components/MeetupsHeader';
-import MeetupsFooter from './components/MeetupsFooter';
+import MeetupsHeader from './components/MeetupsHeader'
+import MeetupsFooter from './components/MeetupsFooter'
 
 export default {
   name: 'App',
@@ -19,7 +19,7 @@ export default {
     MeetupsFooter,
     MeetupsHeader,
   },
-};
+}
 </script>
 
 <style>

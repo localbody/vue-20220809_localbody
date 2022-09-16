@@ -5,26 +5,43 @@
       <form class="form" @submit.prevent="handleSubmit">
         <ui-form-group label="Email">
           <div class="input-group">
-            <input name="email" type="email" placeholder="demo@email" class="form-control" />
+            <input
+              name="email"
+              type="email"
+              placeholder="demo@email"
+              class="form-control"
+            />
           </div>
         </ui-form-group>
         <ui-form-group label="Пароль">
           <div class="input-group">
-            <input name="password" type="password" placeholder="password" class="form-control" />
+            <input
+              name="password"
+              type="password"
+              placeholder="password"
+              class="form-control"
+            />
           </div>
         </ui-form-group>
         <div class="form__buttons">
-          <button type="submit" class="button button_primary button_block">Войти</button>
+          <button type="submit" class="button button_primary button_block">
+            Войти
+          </button>
         </div>
-        <div class="form__append">Нет аккаунта? <a href="/register" class="link">Зарегистрируйтесь</a></div>
+        <div class="form__append">
+          Нет аккаунта?
+          <RouterLink :to="{ name: 'register' }" class="link"
+            >Зарегистрируйтесь</RouterLink
+          >
+        </div>
       </form>
     </ui-container>
   </div>
 </template>
 
 <script>
-import UiFormGroup from '../components/UiFormGroup';
-import UiContainer from '../components/UiContainer';
+import UiFormGroup from '../components/UiFormGroup'
+import UiContainer from '../components/UiContainer'
 
 export default {
   name: 'PageLogin',
@@ -34,12 +51,19 @@ export default {
     UiContainer,
   },
 
+  computed: {
+    path() {
+      return this.$route.query?.from ?? '/'
+    },
+  },
+
   methods: {
     handleSubmit() {
       // Требуется обработать сабмит формы
+      this.$router.push({ path: this.path })
     },
   },
-};
+}
 </script>
 
 <style></style>
