@@ -1,10 +1,17 @@
 <template>
-  <div class="input-group input-group_icon input-group_icon-left input-group_icon-right">
+  <div
+    class="input-group input-group_icon input-group_icon-left input-group_icon-right"
+  >
     <div class="input-group__icon">
       <img class="icon" alt="icon" />
     </div>
 
-    <input ref="input" class="form-control form-control_rounded form-control_sm" />
+    <input
+      ref="input"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+      class="form-control form-control_rounded form-control_sm"
+    />
 
     <div class="input-group__icon">
       <img class="icon" alt="icon" />
@@ -15,7 +22,25 @@
 <script>
 export default {
   name: 'UiInput',
-};
+
+  props: {
+    modelValue: {
+      type: String,
+    },
+
+    small: {
+      type: Boolean,
+    },
+    rounded: {
+      type: Boolean,
+    },
+    multiline: {
+      type: Boolean,
+    },
+  },
+
+  emits: ['update:modelValue'],
+}
 </script>
 
 <style scoped>
@@ -85,11 +110,13 @@ textarea.form-control {
   transform: translate(0, -50%);
 }
 
-.input-group.input-group_icon.input-group_icon-left .input-group__icon:first-child {
+.input-group.input-group_icon.input-group_icon-left
+  .input-group__icon:first-child {
   left: 16px;
 }
 
-.input-group.input-group_icon.input-group_icon-right .input-group__icon:last-child {
+.input-group.input-group_icon.input-group_icon-right
+  .input-group__icon:last-child {
   right: 16px;
 }
 </style>
