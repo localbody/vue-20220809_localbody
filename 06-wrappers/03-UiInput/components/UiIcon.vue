@@ -3,23 +3,23 @@
 </template>
 
 <script>
-import AlertCircle from '@/assets/icons/icon-alert-circle.svg';
-import CalSm from '@/assets/icons/icon-cal-sm.svg';
-import CalLg from '@/assets/icons/icon-cal-lg.svg';
-import Check from '@/assets/icons/icon-check.svg';
-import CheckCircle from '@/assets/icons/icon-check-circle.svg';
-import ChevronDown from '@/assets/icons/icon-chevron-down.svg';
-import Clock from '@/assets/icons/icon-clock.svg';
-import Coffee from '@/assets/icons/icon-coffee.svg';
-import Key from '@/assets/icons/icon-key.svg';
-import List from '@/assets/icons/icon-list.svg';
-import Map from '@/assets/icons/icon-map.svg';
-import PenTool from '@/assets/icons/icon-pen-tool.svg';
-import PillActive from '@/assets/icons/icon-pill-active.svg';
-import Search from '@/assets/icons/icon-search.svg';
-import Trash from '@/assets/icons/icon-trash.svg';
-import Tv from '@/assets/icons/icon-tv.svg';
-import User from '@/assets/icons/icon-user.svg';
+import AlertCircle from '@/assets/icons/icon-alert-circle.svg'
+import CalSm from '@/assets/icons/icon-cal-sm.svg'
+import CalLg from '@/assets/icons/icon-cal-lg.svg'
+import Check from '@/assets/icons/icon-check.svg'
+import CheckCircle from '@/assets/icons/icon-check-circle.svg'
+import ChevronDown from '@/assets/icons/icon-chevron-down.svg'
+import Clock from '@/assets/icons/icon-clock.svg'
+import Coffee from '@/assets/icons/icon-coffee.svg'
+import Key from '@/assets/icons/icon-key.svg'
+import List from '@/assets/icons/icon-list.svg'
+import Map from '@/assets/icons/icon-map.svg'
+import PenTool from '@/assets/icons/icon-pen-tool.svg'
+import PillActive from '@/assets/icons/icon-pill-active.svg'
+import Search from '@/assets/icons/icon-search.svg'
+import Trash from '@/assets/icons/icon-trash.svg'
+import Tv from '@/assets/icons/icon-tv.svg'
+import User from '@/assets/icons/icon-user.svg'
 
 const icons = {
   'alert-circle': AlertCircle,
@@ -39,7 +39,7 @@ const icons = {
   trash: Trash,
   tv: Tv,
   user: User,
-};
+}
 
 export default {
   name: 'UiIcon',
@@ -54,10 +54,10 @@ export default {
 
   computed: {
     iconSrc() {
-      return icons[this.icon];
+      return icons[this.icon]
     },
   },
-};
+}
 </script>
 
 <style scoped>
