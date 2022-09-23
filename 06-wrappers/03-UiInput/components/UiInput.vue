@@ -1,13 +1,28 @@
 <template>
-  <div class="input-group input-group_icon input-group_icon-left input-group_icon-right">
-    <div class="input-group__icon">
-      <img class="icon" alt="icon" />
+  <div
+    class="input-group"
+    :class="[
+      { 'input-group_icon': $slots['left-icon'] || $slots['right-icon'] },
+      { 'input-group_icon-left': $slots['left-icon'] },
+      { 'input-group_icon-right': $slots['right-icon'] },
+    ]"
+  >
+    <div v-if="$slots['left-icon']" class="input-group__icon">
+      <slot name="left-icon" />
     </div>
 
-    <input ref="input" class="form-control form-control_rounded form-control_sm" />
+    <component
+      v-bind="$attrs"
+      :is="tag"
+      ref="input"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+      class="form-control"
+      :class="[{ 'form-control_sm': small, 'form-control_rounded': rounded }]"
+    />
 
-    <div class="input-group__icon">
-      <img class="icon" alt="icon" />
+    <div v-if="$slots['right-icon']" class="input-group__icon">
+      <slot name="right-icon" />
     </div>
   </div>
 </template>
@@ -15,7 +30,39 @@
 <script>
 export default {
   name: 'UiInput',
-};
+
+  inheritAttrs: false,
+
+  props: {
+    modelValue: {
+      type: String,
+    },
+
+    small: {
+      type: Boolean,
+    },
+    rounded: {
+      type: Boolean,
+    },
+    multiline: {
+      type: Boolean,
+    },
+  },
+
+  emits: ['update:modelValue'],
+
+  methods: {
+    focus() {
+      this.$refs['input'].focus()
+    },
+  },
+
+  computed: {
+    tag() {
+      return this.multiline ? 'textarea' : 'input'
+    },
+  },
+}
 </script>
 
 <style scoped>
@@ -85,11 +132,13 @@ textarea.form-control {
   transform: translate(0, -50%);
 }
 
-.input-group.input-group_icon.input-group_icon-left .input-group__icon:first-child {
+.input-group.input-group_icon.input-group_icon-left
+  .input-group__icon:first-child {
   left: 16px;
 }
 
-.input-group.input-group_icon.input-group_icon-right .input-group__icon:last-child {
+.input-group.input-group_icon.input-group_icon-right
+  .input-group__icon:last-child {
   right: 16px;
 }
 </style>

@@ -1,7 +1,11 @@
 <template>
   <div class="sample container">
-    <button type="button" @click="$refs['firstInput'].focus()">Focus first input</button>
-    <button type="button" @click="$refs['firstInput'].$refs['input'].focus()">Focus first input 2</button>
+    <button type="button" @click="$refs['firstInput'].focus()">
+      Focus first input
+    </button>
+    <button type="button" @click="$refs['firstInput'].$refs['input'].focus()">
+      Focus first input 2
+    </button>
 
     <ui-form-group>
       <ui-input ref="firstInput" v-model="value" />
@@ -49,9 +53,9 @@
 </template>
 
 <script>
-import UiInput from './components/UiInput';
-import UiIcon from './components/UiIcon';
-import UiFormGroup from './components/UiFormGroup';
+import UiInput from './components/UiInput'
+import UiIcon from './components/UiIcon'
+import UiFormGroup from './components/UiFormGroup'
 
 export default {
   name: 'App',
@@ -63,9 +67,9 @@ export default {
       value: 'value',
       showIcons: true,
       focused: false,
-    };
+    }
   },
-};
+}
 </script>
 
 <style>
